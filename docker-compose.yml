@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: cloudcost_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: cloudcost_ai
+      MYSQL_USER: cloudcost_user
+      MYSQL_PASSWORD: secure_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    networks:
+      - cloudcost_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cloudcost_app
+    environment:
+      DB_HOST: mysql
+      DB_USER: cloudcost_user
+      DB_PASSWORD: secure_password
+      DB_NAME: cloudcost_ai
+      FLASK_ENV: production
+    ports:
+      - "5000:5000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    volumes:
+      - ./:/app
+      - uploads:/app/uploads
+    networks:
+      - cloudcost_network
+    command: gunicorn --bind 0.0.0.0:5000 backend.app:app
+
+volumes:
+  mysql_data:
+  uploads:
+
+networks:
+  cloudcost_network:
+    driver: bridge
