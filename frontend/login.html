@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - CloudCost AI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <i class="fas fa-cloud-dollar-sign"></i>
+                <h1>CloudCost AI</h1>
+                <p>Enterprise Cloud Pricing Intelligence</p>
+            </div>
+
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" name="password" placeholder="Enter password" required>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox">
+                        <input type="checkbox" name="remember">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            </form>
+
+            <div class="divider">
+                <span>OR</span>
+            </div>
+
+            <div class="oauth-buttons">
+                <button type="button" class="oauth-btn google">
+                    <i class="fab fa-google"></i>
+                    Sign in with Google
+                </button>
+                <button type="button" class="oauth-btn microsoft">
+                    <i class="fab fa-microsoft"></i>
+                    Sign in with Microsoft
+                </button>
+            </div>
+
+            <div class="login-footer">
+                <p>Don't have an account? <a href="#" class="signup-link">Sign up here</a></p>
+            </div>
+        </div>
+
+        <div class="login-image">
+            <div class="image-content">
+                <h2>Welcome Back</h2>
+                <p>Compare cloud pricing intelligently</p>
+                <ul class="benefits">
+                    <li><i class="fas fa-check"></i> Real-time pricing data</li>
+                    <li><i class="fas fa-check"></i> AI-powered recommendations</li>
+                    <li><i class="fas fa-check"></i> Enterprise-grade security</li>
+                    <li><i class="fas fa-check"></i> Multi-cloud support</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

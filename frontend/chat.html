@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat - CloudCost AI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.js">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-cloud-dollar-sign"></i>
+                <span>CloudCost AI</span>
+            </div>
+            <div class="chat-sidebar">
+                <button class="btn-new-chat" id="newChatBtn">
+                    <i class="fas fa-plus"></i> New Chat
+                </button>
+                <div class="chat-history" id="chatHistory">
+                    <!-- Chat history items loaded here -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="main-content">
+            <header class="top-nav">
+                <div class="top-nav-left">
+                    <h2 id="chatTitle">New Chat</h2>
+                </div>
+                <div class="top-nav-right">
+                    <select id="currencySelect">
+                        <option value="USD">USD</option>
+                        <option value="INR">INR</option>
+                        <option value="EUR">EUR</option>
+                        <option value="GBP">GBP</option>
+                    </select>
+                    <button class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div class="chat-container">
+                <div class="messages-area" id="messagesArea">
+                    <div class="welcome-section">
+                        <h1>Welcome to CloudCost AI</h1>
+                        <p>Ask me anything about cloud pricing, architecture, or cost optimization</p>
+                        <div class="quick-prompts">
+                            <button class="prompt-btn" onclick="sendPrompt('Compare AWS EC2 vs Azure VM pricing')">Compare AWS vs Azure</button>
+                            <button class="prompt-btn" onclick="sendPrompt('What is the cheapest way to host a web application?')">Cheapest Web Hosting</button>
+                            <button class="prompt-btn" onclick="sendPrompt('Analyze my infrastructure requirements')">Analyze Infrastructure</button>
+                            <button class="prompt-btn" onclick="sendPrompt('Show cost trends for the last 3 months')">Cost Trends</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-area">
+                    <form id="messageForm" onsubmit="sendMessage(event)">
+                        <div class="input-wrapper">
+                            <input type="text" id="messageInput" placeholder="Ask about cloud pricing, requirements, or architecture..." required>
+                            <button type="button" class="attach-btn" id="attachBtn">
+                                <i class="fas fa-paperclip"></i>
+                            </button>
+                            <button type="submit" class="send-btn">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/api-client.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+</html>

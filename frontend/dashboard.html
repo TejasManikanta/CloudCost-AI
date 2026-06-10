@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - CloudCost AI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-cloud-dollar-sign"></i>
+                <span>CloudCost AI</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3>Main</h3>
+                    <a href="#dashboard" class="nav-item active">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#chat" class="nav-item">
+                        <i class="fas fa-comments"></i>
+                        <span>New Chat</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <h3>Tools</h3>
+                    <a href="#calculator" class="nav-item">
+                        <i class="fas fa-calculator"></i>
+                        <span>Pricing Calculator</span>
+                    </a>
+                    <a href="#comparisons" class="nav-item">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Comparisons</span>
+                    </a>
+                    <a href="#uploads" class="nav-item">
+                        <i class="fas fa-file-upload"></i>
+                        <span>Documents</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <h3>History</h3>
+                    <a href="#history" class="nav-item">
+                        <i class="fas fa-history"></i>
+                        <span>Chat History</span>
+                    </a>
+                    <a href="#reports" class="nav-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>Saved Reports</span>
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <h3>Settings</h3>
+                    <a href="#profile" class="nav-item">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                    <a href="#settings" class="nav-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                    <a href="#" class="nav-item" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <header class="top-nav">
+                <div class="top-nav-left">
+                    <input type="text" class="search-input" placeholder="Search...">
+                </div>
+                <div class="top-nav-right">
+                    <div class="currency-selector">
+                        <select id="currencySelect">
+                            <option value="USD">USD</option>
+                            <option value="INR">INR</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                            <option value="AUD">AUD</option>
+                            <option value="CAD">CAD</option>
+                            <option value="SGD">SGD</option>
+                            <option value="AED">AED</option>
+                            <option value="JPY">JPY</option>
+                        </select>
+                    </div>
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/40" alt="User" class="avatar">
+                        <span id="userName">John Doe</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <div class="content-header">
+                    <h1>Dashboard</h1>
+                    <p>Welcome back! Here's your cloud pricing overview.</p>
+                </div>
+
+                <!-- Statistics Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Pricing Requests</h3>
+                            <p class="stat-number">24</p>
+                            <small>This month</small>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Saved Reports</h3>
+                            <p class="stat-number">12</p>
+                            <small>Total reports</small>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-file-upload"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Uploaded Docs</h3>
+                            <p class="stat-number">8</p>
+                            <small>Analyzed</small>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Analyses</h3>
+                            <p class="stat-number">156</p>
+                            <small>Completed</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloud Provider Preference -->
+                <div class="preference-section">
+                    <h2>Cloud Provider Preference</h2>
+                    <div class="provider-cards">
+                        <div class="provider-card active">
+                            <i class="fab fa-aws"></i>
+                            <h3>AWS</h3>
+                            <p>52% usage</p>
+                        </div>
+                        <div class="provider-card">
+                            <i class="fas fa-window"></i>
+                            <h3>Azure</h3>
+                            <p>35% usage</p>
+                        </div>
+                        <div class="provider-card">
+                            <i class="fab fa-google"></i>
+                            <h3>GCP</h3>
+                            <p>13% usage</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section">
+                    <h2>Analytics</h2>
+                    <div class="analytics-grid">
+                        <div class="chart-card">
+                            <h3>Cost Distribution</h3>
+                            <div id="costChart" class="chart"></div>
+                        </div>
+                        <div class="chart-card">
+                            <h3>Monthly Trend</h3>
+                            <div id="trendChart" class="chart"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="activity-section">
+                    <h2>Recent Activity</h2>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <i class="fas fa-comments"></i>
+                            <div class="activity-content">
+                                <h4>Started new chat</h4>
+                                <p>AWS vs Azure comparison for ML workloads</p>
+                                <small>2 hours ago</small>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <i class="fas fa-file-pdf"></i>
+                            <div class="activity-content">
+                                <h4>Generated report</h4>
+                                <p>Cloud Cost Analysis Q2 2026</p>
+                                <small>1 day ago</small>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <i class="fas fa-file-upload"></i>
+                            <div class="activity-content">
+                                <h4>Uploaded document</h4>
+                                <p>Architecture_Design_Document.pdf</p>
+                                <small>3 days ago</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/api-client.js"></script>
+    <script>
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeDashboard();
+        });
+
+        function initializeDashboard() {
+            // Load user data
+            loadUserProfile();
+            // Load statistics
+            loadStatistics();
+            // Load activity
+            loadRecentActivity();
+        }
+
+        function loadUserProfile() {
+            // Fetch from API
+            apiClient.get('/api/user/profile').then(data => {
+                document.getElementById('userName').textContent = data.first_name + ' ' + data.last_name;
+            });
+        }
+
+        function loadStatistics() {
+            // Fetch statistics from API
+            apiClient.get('/api/dashboard/statistics').then(data => {
+                // Update stat cards
+            });
+        }
+
+        function loadRecentActivity() {
+            // Fetch recent activity
+            apiClient.get('/api/dashboard/activity').then(data => {
+                // Update activity list
+            });
+        }
+
+        function logout() {
+            apiClient.post('/api/auth/logout').then(() => {
+                window.location.href = 'login.html';
+            });
+        }
+    </script>
+</body>
+</html>

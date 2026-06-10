@@ -1,0 +1,191 @@
+/* Responsive Design */
+
+@media (max-width: 1024px) {
+  .dashboard-container {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: -280px;
+    transition: left 0.3s ease;
+    z-index: 100;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    font-size: 15px;
+  }
+
+  .navbar {
+    padding: 0.75rem 0;
+  }
+
+  .nav-container {
+    padding: 0 15px;
+  }
+
+  .nav-menu {
+    gap: 1rem;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 30px 15px;
+    gap: 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .features {
+    padding: 40px 15px;
+  }
+
+  .features h2 {
+    font-size: 1.8rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .dashboard-container {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: static;
+  }
+
+  .main-content {
+    grid-column: 1;
+  }
+
+  .top-nav {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+
+  .top-nav-left,
+  .top-nav-right {
+    width: 100%;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .top-nav-right {
+    justify-content: space-between;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .stat-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .provider-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .analytics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-content {
+    padding: 15px;
+  }
+
+  .content-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .feature-card {
+    padding: 20px;
+  }
+
+  .login-container {
+    grid-template-columns: 1fr;
+  }
+
+  .login-image {
+    display: none;
+  }
+
+  .login-box {
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    font-size: 14px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .features h2 {
+    font-size: 1.3rem;
+  }
+
+  .nav-logo {
+    font-size: 1.2rem;
+  }
+
+  .nav-menu {
+    gap: 0.5rem;
+  }
+
+  .top-nav-right {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .chat-container {
+    padding: 0;
+  }
+
+  .messages-area {
+    padding: 15px;
+  }
+
+  .input-area {
+    padding: 10px 15px;
+  }
+}
